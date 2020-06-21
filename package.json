@@ -1,0 +1,29 @@
+{
+  "name": "convertwordstonumber-ts",
+  "version": "1.0.0",
+  "description": "Convert words to numbers",
+  "main": "index.js",
+  "dependencies": {
+    "typescript-collections": "^1.3.3"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.38"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikhaild908/convertwordstonumber-ts.git"
+  },
+  "keywords": [
+    "Convert",
+    "numbers"
+  ],
+  "author": "Mike D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikhaild908/convertwordstonumber-ts/issues"
+  },
+  "homepage": "https://github.com/mikhaild908/convertwordstonumber-ts#readme"
+}
