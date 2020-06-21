@@ -60,25 +60,29 @@ var WordsToNumberConverter = /** @class */ (function () {
         }
         this.TOKENS.forEach(function (token) {
             var _a;
-            var tokenValue = (_a = _this.TOKENS.getValue(token)) !== null && _a !== void 0 ? _a : 0;
             if (_this.IsTokenMatch(remainingWords, token)) {
+                var tokenValue = (_a = _this.TOKENS.getValue(token)) !== null && _a !== void 0 ? _a : 0;
                 if (!_this.IsMultiplier(token)) {
                     if (previousValue % 1000 == 0 ||
                         previousValue % 100 == 0 && tokenValue >= 100) {
                         previousValue = _this.FindMatchingTokenAndGetValue(tokenValue, remainingWords.substring(token.length)) + previousValue;
-                        //return previousValue;
+                        // return previousValue;
                         //return this.FindMatchingTokenAndGetValue(tokenValue, remainingWords.substring(token.length)) + previousValue;
+                        remainingWords = "";
                     }
                     else {
                         previousValue = _this.FindMatchingTokenAndGetValue(previousValue + tokenValue, remainingWords.substring(token.length));
-                        //return previousValue;
+                        // return previousValue;
                         //return this.FindMatchingTokenAndGetValue(previousValue + tokenValue, remainingWords.substring(token.length));
+                        remainingWords = "";
                     }
                 }
                 else // token is a multiplier
                  {
                     previousValue = _this.FindMatchingTokenAndGetValue(previousValue * tokenValue, remainingWords.substring(token.length));
-                    //return previousValue;
+                    // return previousValue;
+                    //return this.FindMatchingTokenAndGetValue(previousValue * tokenValue, remainingWords.substring(token.length));
+                    remainingWords = "";
                 }
             }
         });

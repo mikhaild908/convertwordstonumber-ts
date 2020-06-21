@@ -73,30 +73,34 @@ class WordsToNumberConverter {
         }
 
         this.TOKENS.forEach(token => {
-            let tokenValue = this.TOKENS.getValue(token) ?? 0;
-
             if (this.IsTokenMatch(remainingWords, token))
             {
+                const tokenValue = this.TOKENS.getValue(token) ?? 0;
+
                 if (!this.IsMultiplier(token))
                 {
                     if (previousValue % 1000 == 0 ||
                         previousValue % 100 == 0 &&  tokenValue >= 100)
                     {
                         previousValue = this.FindMatchingTokenAndGetValue(tokenValue, remainingWords.substring(token.length)) + previousValue;
-                        //return previousValue;
+                        // return previousValue;
                         //return this.FindMatchingTokenAndGetValue(tokenValue, remainingWords.substring(token.length)) + previousValue;
+                        remainingWords = "";
                     }
                     else
                     {
                         previousValue = this.FindMatchingTokenAndGetValue(previousValue + tokenValue, remainingWords.substring(token.length));
-                        //return previousValue;
+                        // return previousValue;
                         //return this.FindMatchingTokenAndGetValue(previousValue + tokenValue, remainingWords.substring(token.length));
+                        remainingWords = "";
                     }
                 }
                 else // token is a multiplier
                 {
                     previousValue = this.FindMatchingTokenAndGetValue(previousValue * tokenValue, remainingWords.substring(token.length));
-                    //return previousValue;
+                    // return previousValue;
+                    //return this.FindMatchingTokenAndGetValue(previousValue * tokenValue, remainingWords.substring(token.length));
+                    remainingWords = "";
                 }
             }
         });
